@@ -1,4 +1,4 @@
-package com.leaves.gmall.user.model;
+package com.leaves.gmall.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

@@ -1,11 +1,11 @@
-package com.leaves.gmall.user.service.impl;
+package com.leaves.gmall.user.impl;
 
+
+import com.alibaba.dubbo.config.annotation.Service;
 import com.leaves.gmall.model.UmsMember;
 import com.leaves.gmall.service.UserService;
 import com.leaves.gmall.user.dao.UserMapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

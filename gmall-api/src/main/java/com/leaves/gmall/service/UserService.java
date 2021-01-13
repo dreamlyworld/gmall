@@ -1,6 +1,7 @@
-package com.leaves.gmall.user.service;
+package com.leaves.gmall.service;
 
-import com.leaves.gmall.user.model.UmsMember;
+
+import com.leaves.gmall.model.UmsMember;
 
 import java.util.List;
 
