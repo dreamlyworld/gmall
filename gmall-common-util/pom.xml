@@ -48,10 +48,22 @@
         <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
-            <exclusions>
+         <!--   <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>-->
+            <exclusions>
+                <!--排除这个slf4j-log4j12-->
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <!--排除这个log4j-->
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
