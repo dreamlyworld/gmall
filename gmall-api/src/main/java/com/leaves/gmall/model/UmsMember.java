@@ -14,7 +14,6 @@ import java.util.Date;
 public class UmsMember implements Serializable {
 
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;

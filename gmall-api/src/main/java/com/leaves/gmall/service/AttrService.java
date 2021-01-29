@@ -17,7 +17,7 @@ public interface AttrService {
     Boolean saveAttrInfo(PmsBaseAttrInfo pmsBaseAttrInfo);
 
 
-    List<PmsBaseAttrValue>  getAttrValueList(String attrId);
+    List<PmsBaseAttrValue> getAttrValueList(String attrId);
 
     Boolean updateAttrInfo(PmsBaseAttrInfo pmsBaseAttrInfo);
 

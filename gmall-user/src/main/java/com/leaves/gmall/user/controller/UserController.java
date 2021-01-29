@@ -26,14 +26,14 @@ public class UserController {
 
     @RequestMapping("index")
     @ResponseBody
-    public String index(){
+    public String index() {
         return "hello user";
     }
 
     @RequestMapping("getAllUser")
     @ResponseBody
-    public List<UmsMember> getAllUser(){
-        List<UmsMember>  UmsMembers =userService.getAllUser();
+    public List<UmsMember> getAllUser() {
+        List<UmsMember> UmsMembers = userService.getAllUser();
         return UmsMembers;
     }
 }

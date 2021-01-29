@@ -36,7 +36,6 @@ public class SpuServiceImpl implements SpuService {
     PmsProductSaleAttrValueMapper pmsProductSaleAttrValueMapper;
 
 
-
     @Override
     public List<PmsProductInfo> spuList(String catalog3Id) {
         PmsProductInfo pmsProductInfo = new PmsProductInfo();
@@ -66,7 +65,6 @@ public class SpuServiceImpl implements SpuService {
         for (PmsProductSaleAttr pmsProductSaleAttr : spuSaleAttrList) {
             pmsProductSaleAttr.setProductId(productId);
             pmsProductSaleAttrMapper.insertSelective(pmsProductSaleAttr);
-
             // 保存销售属性值
             List<PmsProductSaleAttrValue> spuSaleAttrValueList = pmsProductSaleAttr.getSpuSaleAttrValueList();
             for (PmsProductSaleAttrValue pmsProductSaleAttrValue : spuSaleAttrValueList) {
@@ -74,5 +72,27 @@ public class SpuServiceImpl implements SpuService {
                 pmsProductSaleAttrValueMapper.insertSelective(pmsProductSaleAttrValue);
             }
         }
+    }
+
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId) {
+        PmsProductSaleAttr pmsProductSaleAttr = new PmsProductSaleAttr();
+        pmsProductSaleAttr.setProductId(spuId);
+        List<PmsProductSaleAttr> pmsProductSaleAttrList = pmsProductSaleAttrMapper.select(pmsProductSaleAttr);
+        for (PmsProductSaleAttr productSaleAttr : pmsProductSaleAttrList) {
+            PmsProductSaleAttrValue pmsProductSaleAttrValue = new PmsProductSaleAttrValue();
+            pmsProductSaleAttrValue.setSaleAttrId(productSaleAttr.getSaleAttrId());
+            pmsProductSaleAttrValue.setProductId(spuId);
+            List<PmsProductSaleAttrValue> pmsProductSaleAttrValues = pmsProductSaleAttrValueMapper.select(pmsProductSaleAttrValue);
+            productSaleAttr.setSpuSaleAttrValueList(pmsProductSaleAttrValues);
+        }
+        return pmsProductSaleAttrList;
+    }
+
+    @Override
+    public List<PmsProductImage> spuImageList(String spuId) {
+        PmsProductImage pmsProductImage = new PmsProductImage();
+        pmsProductImage.setProductId(spuId);
+        return pmsProductImageMapper.select(pmsProductImage);
     }
 }

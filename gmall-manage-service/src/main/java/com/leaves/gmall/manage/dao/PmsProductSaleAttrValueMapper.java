@@ -8,5 +8,5 @@ import tk.mybatis.mapper.common.Mapper;
  * @Date 2021/1/25 17:17
  * @Version 1.0
  */
-public interface PmsProductSaleAttrValueMapper  extends Mapper<PmsProductSaleAttrValue> {
+public interface PmsProductSaleAttrValueMapper extends Mapper<PmsProductSaleAttrValue> {
 }

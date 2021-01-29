@@ -3,7 +3,9 @@ package com.leaves.gmall.manage.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.leaves.gmall.manage.util.UploadUtil;
 import com.leaves.gmall.model.PmsBaseAttrInfo;
+import com.leaves.gmall.model.PmsProductImage;
 import com.leaves.gmall.model.PmsProductInfo;
+import com.leaves.gmall.model.PmsProductSaleAttr;
 import com.leaves.gmall.service.SpuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,19 +27,39 @@ public class SpuController {
     @Reference
     SpuService spuService;
 
+
+    @RequestMapping("spuSaleAttrList")
+    @ResponseBody
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId) {
+
+        List<PmsProductSaleAttr> pmsProductSaleAttrList = spuService.spuSaleAttrList(spuId);
+
+        return pmsProductSaleAttrList;
+    }
+
+    @RequestMapping("spuImageList")
+    @ResponseBody
+    public List<PmsProductImage> spuImageList(String spuId) {
+
+        List<PmsProductImage> pmsProductImageList = spuService.spuImageList(spuId);
+
+        return pmsProductImageList;
+    }
+
     @RequestMapping("spuList")
     @ResponseBody
-    public List<PmsProductInfo> spuList(String catalog3Id){
+    public List<PmsProductInfo> spuList(String catalog3Id) {
 
         List<PmsProductInfo> pmsBaseAttrInfos = spuService.spuList(catalog3Id);
 
         return pmsBaseAttrInfos;
     }
+
     @RequestMapping("saveSpuInfo")
     @ResponseBody
-    public String saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo){
+    public String saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo) {
 
-       spuService.saveSpuInfo(pmsProductInfo);
+        spuService.saveSpuInfo(pmsProductInfo);
 
         return "success";
     }
@@ -45,7 +67,7 @@ public class SpuController {
 
     @RequestMapping("fileUpload")
     @ResponseBody
-    public String fileUpload(@RequestParam("file") MultipartFile multipartFile){
+    public String fileUpload(@RequestParam("file") MultipartFile multipartFile) {
 
         System.out.println("开始上传");
         String imageUlr = UploadUtil.uploeadImage(multipartFile);
@@ -55,5 +77,6 @@ public class SpuController {
 
         return imageUlr;
     }
+
 
 }

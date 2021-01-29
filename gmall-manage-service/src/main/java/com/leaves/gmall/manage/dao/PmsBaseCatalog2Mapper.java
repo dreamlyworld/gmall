@@ -9,5 +9,5 @@ import tk.mybatis.mapper.common.Mapper;
  * @Date 2021/1/22 10:00
  * @Version 1.0
  */
-public interface PmsBaseCatalog2Mapper  extends Mapper<PmsBaseCatalog2> {
+public interface PmsBaseCatalog2Mapper extends Mapper<PmsBaseCatalog2> {
 }

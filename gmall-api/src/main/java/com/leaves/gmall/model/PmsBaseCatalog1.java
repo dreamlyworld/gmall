@@ -1,7 +1,6 @@
 package com.leaves.gmall.model;
 
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
