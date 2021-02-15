@@ -12,7 +12,7 @@
 	<body>
 		<div id="max">
 		<header>
-		<input type = "text" th:value="${skuSaleAttrHashJsonStr}" id="valuesSku"/>
+		<input type = "hidden" th:value="${skuSaleAttrHashJsonStr}" id="valuesSku"/>
 					<div class="min">
 						<ul class="header_ul_left">
 							<li class="glyphicon glyphicon-home"> <a href="shouye.html" class="aa">首页</a></li>
@@ -1028,9 +1028,10 @@
                k = k +  $(saleAttrValueId).attr("value")+"|";
 			});
             var kuSaleAttrValueJson = JSON.parse(skuSaleAttrValueJsonStr);
+            console.log("k="+k)
             var v_skuId = kuSaleAttrValueJson[k];
 			if(v_skuId){
-                window.location.href = "http://item.gmall.com:8082/"+v_skuId+".html";
+                window.location.href = "http://127.0.0.1:8082/"+v_skuId+".html";
 			}
 
         }

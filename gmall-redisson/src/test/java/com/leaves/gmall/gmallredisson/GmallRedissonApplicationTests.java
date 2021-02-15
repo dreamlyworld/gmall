@@ -1,11 +1,11 @@
-package com.leaves.gmall.manage;
+package com.leaves.gmall.gmallredisson;
 
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GmallManageServiceApplicationTests {
+class GmallRedissonApplicationTests {
 
     @Test
     void contextLoads() {
