@@ -153,4 +153,17 @@ public class SkuServiceImpl implements SkuService {
     public List<PmsSkuInfo> SkuSaleAttrValueListBySpu(String productId) {
         return pmsSkuInfoMapper.selectSkuSaleAttrValueListBySpu(productId);
     }
+
+    @Override
+    public List<PmsSkuInfo> getAllSkuInfo() {
+        List<PmsSkuInfo> pmsSkuInfoList = pmsSkuInfoMapper.selectAll();
+        for (PmsSkuInfo pmsSkuInfo : pmsSkuInfoList) {
+            String skuId = pmsSkuInfo.getId();
+            PmsSkuAttrValue pmsSkuAttrValue = new PmsSkuAttrValue();
+            pmsSkuAttrValue.setSkuId(skuId);
+            List<PmsSkuAttrValue> pmsSkuAttrValueList = pmsSkuAttrValueMapper.select(pmsSkuAttrValue);
+            pmsSkuInfo.setSkuAttrValueList(pmsSkuAttrValueList);
+        }
+        return pmsSkuInfoList;
+    }
 }

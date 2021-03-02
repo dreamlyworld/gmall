@@ -8,10 +8,12 @@ import com.leaves.gmall.model.PmsBaseAttrInfo;
 import com.leaves.gmall.model.PmsBaseAttrValue;
 import com.leaves.gmall.model.PmsBaseSaleAttr;
 import com.leaves.gmall.service.AttrService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Author Chenweiwei
@@ -98,5 +100,12 @@ public class AttrServiceImpl implements AttrService {
     @Override
     public List<PmsBaseSaleAttr> getaseSaleAttrListB() {
         return this.pmsBaseSaleAttrMapper.selectAll();
+    }
+
+    @Override
+    public List<PmsBaseAttrInfo> getListByValueIds(Set<String> set) {
+        String valueIdStr = StringUtils.join(set, ",");
+        List<PmsBaseAttrInfo> pmsBaseAttrInfos = pmsBaseAttrInfoMapper.selecttListByValueIds(valueIdStr);
+        return pmsBaseAttrInfos;
     }
 }

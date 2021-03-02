@@ -5,6 +5,7 @@ import com.leaves.gmall.model.PmsBaseAttrValue;
 import com.leaves.gmall.model.PmsBaseSaleAttr;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Author Chenweiwei
@@ -22,4 +23,6 @@ public interface AttrService {
     Boolean updateAttrInfo(PmsBaseAttrInfo pmsBaseAttrInfo);
 
     List<PmsBaseSaleAttr> getaseSaleAttrListB();
+
+    List<PmsBaseAttrInfo> getListByValueIds(Set<String> set);
 }
